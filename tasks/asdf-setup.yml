@@ -1,0 +1,9 @@
+- name: Clone asdf
+  ansible.builtin.git:
+    repo: 'https://github.com/asdf-vm/asdf.git'
+    dest: "{{ lookup('env', 'HOME') }}/.asdf"
+    version: "v0.9.0"
+  tags:
+    - install
+    - dotfiles
+    - nodejs

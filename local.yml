@@ -19,5 +19,7 @@
     - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/tmux-setup.yml
-    - import_tasks: tasks/nvim-setup.yml
     - import_tasks: tasks/productivity-tools.yml
+    - import_tasks: tasks/asdf-setup.yml
+    - import_tasks: tasks/nodejs-setup.yml
+    - import_tasks: tasks/nvim-setup.yml

@@ -18,20 +18,14 @@
 
 - name: Install zsh autosuggestions
   ansible.builtin.git:
-    repo: 'https://github.com/neovim/neovim.git'
-    dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/plugins/zsh-autosuggestions"
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/plugins/zsh-autosuggestions"
   tags:
     - install
     - zsh
 
-- name: Remove default .zshrc
+- name: Remove default OhMyZsh .zshrc
   shell: rm $HOME/.zshrc
   tags:
     - install
     - zsh
-
-# - name: Activate zsh autosuggestions plugins
-#   shell: sed 's/plugins=(/plugins=(zsh-autosuggestions/'
-#   tags:
-#     - install
-#     - zsh

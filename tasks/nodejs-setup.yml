@@ -1,0 +1,23 @@
+- name: Install nodejs asdf plugin
+  shell: asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  environment: 
+    PATH: "{{ lookup('env', 'HOME') }}/.asdf/bin:{{ ansible_env.PATH }}"
+  tags:
+    - install
+    - nodejs
+
+- name: Install node lts
+  shell: asdf install nodejs lts
+  environment: 
+    PATH: "{{ lookup('env', 'HOME') }}/.asdf/bin:{{ ansible_env.PATH }}"
+  tags:
+    - install
+    - nodejs
+
+- name: Set nodejs lts version global
+  shell: asdf global nodejs lts
+  environment: 
+    PATH: "{{ lookup('env', 'HOME') }}/.asdf/bin:{{ ansible_env.PATH }}"
+  tags:
+    - install
+    - nodejs

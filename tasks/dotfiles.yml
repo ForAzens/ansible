@@ -4,6 +4,7 @@
     - install
     - dotfiles
     - stow
+
 - name: Clone .dotfiles
   ansible.builtin.git:
     repo: 'https://github.com/ForAzens/.dotfiles.git'
@@ -14,6 +15,7 @@
     - install
     - dotfiles
     - stow
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./install
   tags:
