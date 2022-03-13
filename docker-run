@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+IMAGE_NAME="ansible_test"
+
+docker build -t $IMAGE_NAME .
+
+docker run -it --rm $IMAGE_NAME bash

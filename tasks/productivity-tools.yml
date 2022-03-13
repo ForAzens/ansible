@@ -1,0 +1,8 @@
+- name: Install producitivity packages
+  become: yes
+  apt:
+    name: ["fzf", "tldr", "ripgrep"]
+  tags:
+    - install
+    - producitivity
+

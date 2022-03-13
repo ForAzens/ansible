@@ -1,0 +1,37 @@
+- name: Install zsh
+  apt: name=zsh
+  tags:
+    - install
+    - zsh
+
+- name: Change shell
+  shell: chsh -s `which zsh`
+  tags:
+    - install
+    - zsh
+
+- name: Install OhMyZsh
+  shell: curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+  tags:
+    - install
+    - zsh
+
+- name: Install zsh autosuggestions
+  ansible.builtin.git:
+    repo: 'https://github.com/neovim/neovim.git'
+    dest: "{{ lookup('env', 'ZSH_CUSTOM') }}/plugins/zsh-autosuggestions"
+  tags:
+    - install
+    - zsh
+
+- name: Remove default .zshrc
+  shell: rm $HOME/.zshrc
+  tags:
+    - install
+    - zsh
+
+# - name: Activate zsh autosuggestions plugins
+#   shell: sed 's/plugins=(/plugins=(zsh-autosuggestions/'
+#   tags:
+#     - install
+#     - zsh
