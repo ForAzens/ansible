@@ -22,8 +22,21 @@
   tags: 
     - install
     - neovim
-# - name: Install Packer.nvim
-#   shell: git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-#   tags: 
-#     - install
-#     - neovim
+
+- name: Install efm lang server
+  shell: zsh -ci 'go install github.com/mattn/efm-langserver@latest'
+  tags:
+    - install
+    - neovim
+
+- name: Reshim golang asdf
+  shell: zsh -ci 'asdf reshim golang'
+  tags:
+    - install
+    - neovim
+
+- name: Install node tools
+  shell: zsh -ci 'npm install -g typescript typescript-language-server prettier @fsouza/prettierd eslint_d'
+  tags:
+    - install
+    - neovim

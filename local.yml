@@ -22,4 +22,5 @@
     - import_tasks: tasks/productivity-tools.yml
     - import_tasks: tasks/asdf-setup.yml
     - import_tasks: tasks/nodejs-setup.yml
+    - import_tasks: tasks/golang-setup.yml
     - import_tasks: tasks/nvim-setup.yml
