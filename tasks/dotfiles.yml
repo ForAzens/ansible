@@ -18,6 +18,13 @@
     - dotfiles
     - stow
 
+- name: Create folders to avoid collisions
+  shell: mkdir ~/.config && mkdir -p ~/.local/bin
+  tags:
+    - install
+    - dotfiles
+    - stow
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./install
   tags:
