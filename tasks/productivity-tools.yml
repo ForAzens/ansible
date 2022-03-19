@@ -1,8 +1,33 @@
 - name: Install producitivity packages
   become: yes
   apt:
-    name: ["fzf", "tldr", "ripgrep"]
+    name: ["fzf", "tldr", "ripgrep", "jq", "pandoc"]
   tags:
     - install
-    - producitivity
+    - productivity
+    - neovim
 
+
+- name: Clone markdown reader Glow
+  ansible.builtin.git:
+    repo: 'https://github.com/charmbracelet/glow.git'
+    dest: "{{ lookup('env', 'HOME') }}/glow"
+  tags:
+    - install
+    - productivity
+- name: Build Glow
+  shell: "cd {{ lookup('env', 'HOME') }}/glow && go build"
+  tags:
+    - install
+    - productivity
+- name: Install Glow
+  shell: "cp {{ lookup('env', 'HOME') }}/glow/glow {{ lookup('env', 'HOME') }}/.local/bin/glow"
+  tags:
+    - install
+    - productivity
+# - name: Cleanup glow build files
+#   shell: "rm -rf {{ lookup('env', 'HOME') }}/glow"
+#   tags:
+#     - install
+#     - productivity
+#
