@@ -4,6 +4,7 @@
     - install
     - golang
     - neovim
+  ignore_errors: yes
 
 - name: Install golang latest
   shell: zsh -ci 'asdf install golang latest'
